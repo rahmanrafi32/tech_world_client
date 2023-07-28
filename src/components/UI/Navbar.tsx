@@ -1,12 +1,14 @@
+import Link from "next/link";
+
 const Navbar = () => {
     return (
         <div className="navbar shadow-lg">
             <div className="navbar-start">
-                <a className="btn btn-ghost normal-case text-2xl">Tech World</a>
+                <Link href={'/'} className="ml-5 text-3xl font-bold">Tech World</Link>
             </div>
             <div className="navbar-center hidden md:block">
                 <div className="form-control">
-                    <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+                    <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto"/>
                 </div>
             </div>
             <div className="navbar-end">
