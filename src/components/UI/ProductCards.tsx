@@ -1,4 +1,4 @@
-import {FeaturedProduct, featuredProducts} from "@/data";
+import {FeaturedProduct} from "@/data";
 
 type IProps = {
     featuredProducts: FeaturedProduct[]
