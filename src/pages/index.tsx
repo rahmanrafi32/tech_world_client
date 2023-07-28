@@ -9,7 +9,7 @@ import FeaturedCategories from "@/components/FeaturedCategories";
 export default function Home() {
     return (
         <div className={'container mx-auto'}>
-            <div className={'flex justify-center'}>
+            <div className={'flex justify-center mt-5'}>
                 <Banner/>
             </div>
             <div className={'flex flex-col items-center mb-4'}>
