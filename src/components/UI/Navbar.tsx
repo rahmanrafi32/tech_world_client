@@ -1,7 +1,9 @@
 import Link from "next/link";
 import {featuredCategories} from "@/data";
+import {useSession, signOut} from "next-auth/react"
 
 const Navbar = () => {
+    const {data: session} = useSession()
     return (
         <div className="navbar shadow-lg">
             <div className="navbar-start">
@@ -30,8 +32,9 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><Link href={'/sign-in'}>Sign in</Link></li>
-                        <li><a>Sign out</a></li>
+                        {
+                            session?.user ? <li><a onClick={() => signOut()}>Sign out</a></li> : <li><Link href={'/sign-in'}>Sign in</Link></li>
+                        }
                     </ul>
                 </div>
                 <div className="dropdown dropdown-end">
@@ -59,8 +62,9 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><Link href={'/sign-in'}>Sign in</Link></li>
-                        <li><a>Sign out</a></li>
+                        {
+                            session?.user ? <li><a onClick={() => signOut()}>Sign out</a></li> : <li><Link href={'/sign-in'}>Sign in</Link></li>
+                        }
                     </ul>
                 </div>
             </div>
