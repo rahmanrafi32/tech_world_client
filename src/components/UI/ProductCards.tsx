@@ -25,10 +25,10 @@ const ProductCards = ({featuredProducts}: IProps) => {
                         <div className="card-body">
                             <Link href={`/product-details/${product?._id}`}>
                                 <h2 className="card-title">{product.productName}</h2>
-                                <h2 className="card-title">Category: {product.category}</h2>
-                                <h2 className="card-title">Price: {product.price}</h2>
-                                <h2 className="card-title">Status: {product.status}</h2>
-                                <h2 className="card-title">Rating: {product.rating}</h2>
+                                <h2 className="card-title mt-3">Category: {product.category}</h2>
+                                <h2 className="card-title mt-3">Price: {product.price}</h2>
+                                <h2 className="card-title mt-3">Status: {product.status}</h2>
+                                <h2 className="card-title mt-3">Rating: {product.rating}</h2>
                             </Link>
                             <div className="card-actions justify-center">
                                 <button className="btn btn-primary min-w-full">Buy Now</button>
