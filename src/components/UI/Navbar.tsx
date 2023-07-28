@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {featuredCategories} from "@/data";
 
 const Navbar = () => {
     return (
@@ -13,21 +14,19 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div className="hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><a>Build Pc</a></li>
+                    <ul className="menu menu-horizontal menu-dropdown px-1 font-bold text-lg">
+                        <li><a>PC Builder</a></li>
                         <li>
                             <details>
                                 <summary>
                                     Categories
                                 </summary>
-                                <ul className="p-2 mt-2 w-44">
-                                    <li><a>CPU/Processor</a></li>
-                                    <li><a>Motherboard</a></li>
-                                    <li><a>RAM</a></li>
-                                    <li><a>Power Supply Unit</a></li>
-                                    <li><a>Storage Device</a></li>
-                                    <li><a>Monitor</a></li>
-                                    <li><a>Others</a></li>
+                                <ul className="p-2 mt-2 w-56 z-[1] ">
+                                    {
+                                        featuredCategories.map((category, index) => (
+                                            <li key={index}><Link href={`/categories/${category}`}>{category}</Link>
+                                            </li>))
+                                    }
                                 </ul>
                             </details>
                         </li>
@@ -52,13 +51,11 @@ const Navbar = () => {
                                     Categories
                                 </summary>
                                 <ul className="p-2 w-44">
-                                    <li><a>CPU/Processor</a></li>
-                                    <li><a>Motherboard</a></li>
-                                    <li><a>RAM</a></li>
-                                    <li><a>Power Supply Unit</a></li>
-                                    <li><a>Storage Device</a></li>
-                                    <li><a>Monitor</a></li>
-                                    <li><a>Others</a></li>
+                                    {
+                                        featuredCategories.map((category, index) => (
+                                            <li key={index}><Link href={`/categories/${category}`}>{category}</Link>
+                                            </li>))
+                                    }
                                 </ul>
                             </details>
                         </li>
