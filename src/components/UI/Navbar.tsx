@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 <div className="hidden lg:flex">
                     <ul className="menu menu-horizontal menu-dropdown px-1 font-bold text-lg">
-                        <li><a>PC Builder</a></li>
+                        <li><Link href={'/pc-builder'}>PC Builder</Link></li>
                         <li>
                             <details>
                                 <summary>
@@ -30,7 +30,7 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><a>Sign in</a></li>
+                        <li><Link href={'/sign-in'}>Sign in</Link></li>
                         <li><a>Sign out</a></li>
                     </ul>
                 </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-56">
-                        <li><a>Build Pc</a></li>
+                        <li><Link href={'/pc-builder'}>Build Pc</Link></li>
                         <li>
                             <details>
                                 <summary>
@@ -59,7 +59,7 @@ const Navbar = () => {
                                 </ul>
                             </details>
                         </li>
-                        <li><a>Sign in</a></li>
+                        <li><Link href={'/sign-in'}>Sign in</Link></li>
                         <li><a>Sign out</a></li>
                     </ul>
                 </div>
