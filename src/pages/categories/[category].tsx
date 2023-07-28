@@ -2,8 +2,6 @@ import {useRouter} from "next/router";
 import {ReactElement} from "react";
 import RootLayout from "@/components/layouts/RootLayout";
 import {FeaturedProduct} from "@/data";
-import Image from "next/image";
-import Link from "next/link";
 import {GetStaticPaths, GetStaticProps} from "next";
 import ProductCards from "@/components/UI/ProductCards";
 
