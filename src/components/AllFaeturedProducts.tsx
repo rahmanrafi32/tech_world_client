@@ -1,7 +1,10 @@
-import {featuredProducts} from "@/data";
 import ProductCards from "@/components/UI/ProductCards";
+import {FeaturedProduct} from "@/data";
 
-const AllFeaturedProducts = () => {
+type IProps = {
+    featuredProducts: FeaturedProduct[]
+}
+const AllFeaturedProducts = ({featuredProducts}: IProps) => {
     return (
         <div className={'flex flex-col items-center mt-10 lg:mt-0'}>
             <h1 className={'text-3xl lg:text-5xl'}>Featured Products</h1>
@@ -10,5 +13,6 @@ const AllFeaturedProducts = () => {
         </div>
     );
 };
+
 
 export default AllFeaturedProducts;
