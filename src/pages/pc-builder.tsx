@@ -3,8 +3,11 @@ import RootLayout from "@/components/layouts/RootLayout";
 import {featuredCategories} from "@/data";
 import CategoryCards from "@/components/UI/CategoryCards";
 import Link from "next/link";
+import {useAppSelector} from "@/redux/reduxTypedHooks";
+import Image from "next/image";
 
 const PcBuilder = () => {
+    const {cpu, monitor, motherboard, ram, powerSupply, storage} = useAppSelector(state => state.pcBuilder)
     return (
         <div className={'container mx-auto h-full flex flex-col items-center mt-16 mb-28'}>
             <h1 className={'lg:text-3xl'}>Build Your Dream Pc With Us</h1>
@@ -13,102 +16,117 @@ const PcBuilder = () => {
                 <CategoryCards featuredCategories={featuredCategories} showButton={true}/>
             </div>
 
-            <div className={'bg-base-100 shadow-md w-3/4 h-24 p-5 mt-10 rounded'}>
+            <div className={'bg-base-100 shadow-md w-3/4 h-full p-5 mt-10 rounded'}>
                 <div className="w-full flex items-center justify-between">
                     <h1 className={'text-xl font-medium'}>CPU</h1>
                     <Link href={'/categories/Cpu'}>
                         <button className={'btn'}>Choose</button>
                     </Link>
                 </div>
-                <div className="w-full flex items-center justify-between">
-                    <div className={'flex justify-center items-center'}>
-                        <h1>Image</h1>
-                        <h1 className={'text-xl font-medium'}>CPU Name</h1>
-                    </div>
-                    <h1 className={'text-xl font-medium'}>Price</h1>
-                </div>
+                {
+                    cpu.productName ? (<div className="w-full flex items-center justify-between">
+                        <div className={'flex justify-center items-center'}>
+                            <Image src={cpu.image} alt={cpu.productName} width={100} height={100}/>
+                            <h1 className={'text-xl font-medium'}>{cpu.productName}</h1>
+                        </div>
+                        <h1 className={'text-xl font-medium'}>{cpu.price}</h1>
+                    </div>) : null
+                }
             </div>
 
-            <div className={'bg-base-100 shadow-md w-3/4 h-24 p-5 mt-10 rounded'}>
+            <div className={'bg-base-100 shadow-md w-3/4 h-full p-5 mt-10 rounded'}>
                 <div className="w-full flex items-center justify-between">
                     <h1 className={'text-xl font-medium'}>Motherboard</h1>
                     <Link href={'/categories/Motherboard'}>
                         <button className={'btn'}>Choose</button>
                     </Link>
                 </div>
-                <div className="w-full flex items-center justify-between">
-                    <div className={'flex justify-center items-center'}>
-                        <h1>Image</h1>
-                        <h1 className={'text-xl font-medium'}>CPU Name</h1>
-                    </div>
-                    <h1 className={'text-xl font-medium'}>Price</h1>
-                </div>
+                {
+                    motherboard.productName ? (<div className="w-full flex items-center justify-between">
+                        <div className={'flex justify-center items-center'}>
+                            <Image src={motherboard.image} alt={motherboard.productName} width={100} height={100}/>
+                            <h1 className={'text-xl font-medium'}>{motherboard.productName}</h1>
+                        </div>
+                        <h1 className={'text-xl font-medium'}>{motherboard.price}</h1>
+                    </div>) : null
+                }
             </div>
 
-            <div className={'bg-base-100 shadow-md w-3/4 h-24 p-5 mt-10 rounded'}>
+            <div className={'bg-base-100 shadow-md w-3/4 h-full p-5 mt-10 rounded'}>
                 <div className="w-full flex items-center justify-between">
                     <h1 className={'text-xl font-medium'}>RAM</h1>
                     <Link href={'/categories/RAM'}>
                         <button className={'btn'}>Choose</button>
                     </Link>
                 </div>
-                <div className="w-full flex items-center justify-between">
-                    <div className={'flex justify-center items-center'}>
-                        <h1>Image</h1>
-                        <h1 className={'text-xl font-medium'}>CPU Name</h1>
-                    </div>
-                    <h1 className={'text-xl font-medium'}>Price</h1>
-                </div>
+                {
+                    ram.productName ? (<div className="w-full flex items-center justify-between">
+                        <div className={'flex justify-center items-center'}>
+                            <Image src={ram.image} alt={ram.productName} width={100} height={100}/>
+                            <h1 className={'text-xl font-medium'}>{ram.productName}</h1>
+                        </div>
+                        <h1 className={'text-xl font-medium'}>{ram.price}</h1>
+                    </div>) : null
+                }
             </div>
 
-            <div className={'bg-base-100 shadow-md w-3/4 h-24 p-5 mt-10 rounded'}>
+            <div className={'bg-base-100 shadow-md w-3/4 h-full p-5 mt-10 rounded'}>
                 <div className="w-full flex items-center justify-between">
                     <h1 className={'text-xl font-medium'}>Power Supply Unit</h1>
                     <Link href={'/categories/Power Supply Unit'}>
                         <button className={'btn'}>Choose</button>
                     </Link>
                 </div>
-                <div className="w-full flex items-center justify-between">
-                    <div className={'flex justify-center items-center'}>
-                        <h1>Image</h1>
-                        <h1 className={'text-xl font-medium'}>CPU Name</h1>
-                    </div>
-                    <h1 className={'text-xl font-medium'}>Price</h1>
-                </div>
+                {
+                    powerSupply.productName ? (<div className="w-full flex items-center justify-between">
+                        <div className={'flex justify-center items-center'}>
+                            <Image src={powerSupply.image} alt={powerSupply.productName} width={100} height={100}/>
+                            <h1 className={'text-xl font-medium'}>{powerSupply.productName}</h1>
+                        </div>
+                        <h1 className={'text-xl font-medium'}>{powerSupply.price}</h1>
+                    </div>) : null
+                }
             </div>
 
-            <div className={'bg-base-100 shadow-md w-3/4 h-24 p-5 mt-10 rounded'}>
+            <div className={'bg-base-100 shadow-md w-3/4 h-full p-5 mt-10 rounded'}>
                 <div className="w-full flex items-center justify-between">
                     <h1 className={'text-xl font-medium'}>Storage Device</h1>
                     <Link href={'/categories/Storage Device'}>
                         <button className={'btn'}>Choose</button>
                     </Link>
                 </div>
-                <div className="w-full flex items-center justify-between">
-                    <div className={'flex justify-center items-center'}>
-                        <h1>Image</h1>
-                        <h1 className={'text-xl font-medium'}>CPU Name</h1>
-                    </div>
-                    <h1 className={'text-xl font-medium'}>Price</h1>
-                </div>
+                {
+                    storage.productName ? (<div className="w-full flex items-center justify-between">
+                        <div className={'flex justify-center items-center'}>
+                            <Image src={storage.image} alt={storage.productName} width={100} height={100}/>
+                            <h1 className={'text-xl font-medium'}>{storage.productName}</h1>
+                        </div>
+                        <h1 className={'text-xl font-medium'}>{storage.price}</h1>
+                    </div>) : null
+                }
             </div>
 
-            <div className={'bg-base-100 shadow-md w-3/4 h-24 p-5 mt-10 rounded'}>
+            <div className={'bg-base-100 shadow-md w-3/4 h-full p-5 mt-10 rounded'}>
                 <div className="w-full flex items-center justify-between">
                     <h1 className={'text-xl font-medium'}>Monitor</h1>
                     <Link href={'/categories/Monitor'}>
                         <button className={'btn'}>Choose</button>
                     </Link>
                 </div>
-                <div className="w-full flex items-center justify-between">
-                    <div className={'flex justify-center items-center'}>
-                        <h1>Image</h1>
-                        <h1 className={'text-xl font-medium'}>CPU Name</h1>
-                    </div>
-                    <h1 className={'text-xl font-medium'}>Price</h1>
-                </div>
+                {
+                    monitor.productName ? (<div className="w-full flex items-center justify-between">
+                        <div className={'flex justify-center items-center'}>
+                            <Image src={monitor.image} alt={monitor.productName} width={100} height={100}/>
+                            <h1 className={'text-xl font-medium'}>{monitor.productName}</h1>
+                        </div>
+                        <h1 className={'text-xl font-medium'}>{monitor.price}</h1>
+                    </div>) : null
+                }
             </div>
-            <button className={'btn btn-primary w-56 mt-12'}>Complete Build</button>
+            {
+                (cpu.productName && monitor.productName && motherboard.productName && ram.productName && powerSupply.productName && storage.productName) ?
+                    <button className={'btn btn-primary w-56 mt-12 disabled'}>Complete Build</button> : null
+            }
         </div>
     );
 };

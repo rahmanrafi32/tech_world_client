@@ -13,9 +13,7 @@ const Category = ({productsByCategory}: IProps) => {
     return (
         <div className={'container mx-auto h-screen mt-5 mb-10 flex flex-col items-center'}>
             <h1 className={'text-2xl lg:text-5xl mb-5'}>Category: {query.category}</h1>
-            <div className={'grid grid-cols-1 lg:grid-cols-3 gap-4'}>
-                <ProductCards featuredProducts={productsByCategory}/>
-            </div>
+            <ProductCards featuredProducts={productsByCategory}/>
         </div>
     );
 };
