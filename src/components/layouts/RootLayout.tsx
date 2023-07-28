@@ -9,7 +9,7 @@ const RootLayout = ({children}: IProps) => {
     return (
         <>
             <Navbar/>
-            <div className={'h-screen'}>{children}</div>
+            <div className={'h-full'}>{children}</div>
             <Footer/>
         </>
     );
