@@ -39,7 +39,7 @@ const ProductCards = ({featuredProducts}: IProps) => {
     return (
         <div className={'grid lg:grid-cols-3 gap-4 grid-cols-1'}>
             {
-                featuredProducts.map(product =>
+                featuredProducts?.map(product =>
                     <div className="card bg-base-100 shadow-xl lg:w-96 mx-2" key={product?.productName}>
                         <Link href={`/product-details/${product?._id}`}>
                             <figure>

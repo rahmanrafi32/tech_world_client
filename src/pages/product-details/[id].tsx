@@ -13,14 +13,14 @@ const ProductDetails = ({productsById}: IProps) => {
         <div className={'container mx-auto h-full w-screen flex justify-center mt-28'}>
             <div className={'grid grid-cols-1 md:grid-cols-2 gap-5'}>
                 <div>
-                    <Image src={productsById.image} alt={productsById.productName} width={500} height={500}/>
+                    <Image src={productsById?.image} alt={productsById?.productName} width={500} height={500}/>
                 </div>
                 <div className={'flex flex-col p-4 gap-2'}>
-                    <h1 className={'text-2xl lg:text-3xl'}>{productsById.productName}</h1>
-                    <h1 className={'text-xl mt-2'}>Category: {productsById.category}</h1>
-                    <h2 className={'text-xl'}>{productsById.status}</h2>
+                    <h1 className={'text-2xl lg:text-3xl'}>{productsById?.productName}</h1>
+                    <h1 className={'text-xl mt-2'}>Category: {productsById?.category}</h1>
+                    <h2 className={'text-xl'}>{productsById?.status}</h2>
                     <h2 className={'text-2xl'}>Description</h2>
-                    <h2>{productsById.description}</h2>
+                    <h2>{productsById?.description}</h2>
                     <h2 className={'text-2xl mt-8'}>Key Features</h2>
                     <h2 className={'text-xl mt-3'}>Brand: {productsById?.features?.brand}</h2>
                     <h2 className={'text-xl'}>Model: {productsById?.features?.model}</h2>
@@ -30,7 +30,7 @@ const ProductDetails = ({productsById}: IProps) => {
                     <h2 className={'text-xl'}>Individual Rating: {productsById?.individualRating}</h2>
 
 
-                    <h2 className={'text-xl mt-3'}>Price: {productsById.price}</h2>
+                    <h2 className={'text-xl mt-3'}>Price: {productsById?.price}</h2>
                     <button className={'btn btn-primary mt-10'}>Buy Now</button>
                 </div>
                 <div className={'px-4'}>
@@ -58,17 +58,18 @@ ProductDetails.getLayout = function getLayout(page: ReactElement) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const products = await fetch(`http://localhost:8080/api/v1/products`);
+    const products = await fetch(`https://tech-world-server.vercel.app/api/v1/products`);
     const allProducts = await products.json()
     const paths = allProducts?.data?.map((product: FeaturedProduct) => ({params: {id: product._id}}))
     return {
-        paths, fallback: false
+        paths,
+        fallback: true
     }
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const {params} = context
-    const products = await fetch(`http://localhost:8080/api/v1/products/product-details/${params?.id}`);
+    const products = await fetch(`https://tech-world-server.vercel.app/api/v1/products/product-details/${params?.id}`);
     const productsById = await products.json()
     return {
         props: {

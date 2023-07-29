@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import {ReactElement} from "react";
 import RootLayout from "@/components/layouts/RootLayout";
 import {FeaturedProduct} from "@/types";
-import {GetServerSidePropsContext} from "next";
+import {GetStaticPaths, GetStaticProps} from "next";
 import ProductCards from "@/components/UI/ProductCards";
 
 type IProps = {
@@ -24,14 +24,24 @@ Category.getLayout = function getLayout(page: ReactElement) {
     return (<RootLayout>{page}</RootLayout>)
 }
 
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+    const products = await fetch(`https://tech-world-server.vercel.app/api/v1/products`);
+    const allProducts = await products.json()
+    const paths = allProducts?.data?.map((product: FeaturedProduct) => ({params: {category: product.category}}))
+    return {
+        paths,
+        fallback: true
+    }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
     const {params} = context
-    const res = await fetch(`http://localhost:8080/api/v1/products/categories/${params?.category}`)
-    const data = await res.json()
+    const products = await fetch(`https://tech-world-server.vercel.app/api/v1/products/categories/${params?.category}`);
+    const productsById = await products.json()
 
     return {
         props: {
-            productsByCategory: data.data
+            productsByCategory: productsById.data
         },
-    }
+    };
 }

@@ -28,7 +28,7 @@ Home.getLayout = function getLayout(page: ReactElement) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const products = await fetch('http://localhost:8080/api/v1/products');
+    const products = await fetch('https://tech-world-server.vercel.app/api/v1/products');
     const allProducts = await products.json()
     return {
         props: {
