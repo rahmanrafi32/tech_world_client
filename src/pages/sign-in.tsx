@@ -34,10 +34,10 @@ const SignIn = () => {
                             <p>Sign in with</p>
                             <div className={'flex justify-center gap-7'}>
                                 <BsGithub className={'text-5xl cursor-pointer'} onClick={() => signIn("github", {
-                                    callbackUrl: callbackUrl as string || 'http://localhost:3000'
+                                    callbackUrl: callbackUrl as string || 'https://tech-world-client.vercel.app'
                                 })}/>
                                 <FcGoogle className={'text-5xl cursor-pointer'} onClick={() => signIn("google", {
-                                    callbackUrl: callbackUrl as string || 'http://localhost:3000'
+                                    callbackUrl: callbackUrl as string || 'https://tech-world-client.vercel.app'
                                 })}/>
                             </div>
                         </div>
