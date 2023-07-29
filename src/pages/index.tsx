@@ -4,7 +4,7 @@ import Banner from "@/components/Banner";
 import AllFeaturedProducts from "@/components/AllFaeturedProducts";
 import FeaturedCategories from "@/components/FeaturedCategories";
 import {GetStaticProps} from "next";
-import {FeaturedProduct} from "@/data";
+import {FeaturedProduct} from "@/types";
 
 type IProps = {
     allProducts: FeaturedProduct[]

@@ -1,5 +1,5 @@
 import ProductCards from "@/components/UI/ProductCards";
-import {FeaturedProduct} from "@/data";
+import {FeaturedProduct} from "@/types";
 
 type IProps = {
     featuredProducts: FeaturedProduct[]

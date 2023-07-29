@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {featuredCategories} from "@/data";
+import {featuredCategories} from "@/types";
 import {useSession, signOut} from "next-auth/react"
 
 const Navbar = () => {

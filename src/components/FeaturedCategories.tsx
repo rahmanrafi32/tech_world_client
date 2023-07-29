@@ -1,5 +1,5 @@
 import CategoryCards from "@/components/UI/CategoryCards";
-import {featuredCategories} from "@/data";
+import {featuredCategories} from "@/types";
 
 const FeaturedCategories = () => {
     return (
