@@ -7,6 +7,7 @@ import {useAppSelector} from "@/redux/reduxTypedHooks";
 import Image from "next/image";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {GetServerSideProps} from "next";
 
 const PcBuilder = () => {
     const {cpu, monitor, motherboard, ram, powerSupply, storage} = useAppSelector(state => state.pcBuilder)
@@ -141,7 +142,13 @@ const PcBuilder = () => {
 };
 
 export default PcBuilder;
+export const getServerSideProps: GetServerSideProps = async () => {
+    const res = await fetch('https://tech-world-server.vercel.app/api/v1/products')
+    const data = await res.json()
+    return { props: { allProducts: data.data } }
+}
 
 PcBuilder.getLayout = function getLayout(page: ReactElement) {
     return (<RootLayout>{page}</RootLayout>)
 }
+
