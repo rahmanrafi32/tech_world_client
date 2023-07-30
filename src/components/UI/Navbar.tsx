@@ -26,7 +26,7 @@ const Navbar = () => {
                                 <ul className="p-2 mt-2 w-56 z-[1] ">
                                     {
                                         featuredCategories.map((category, index) => (
-                                            <li key={index}><Link href={`/categories/${category}`}>{category}</Link>
+                                            <li key={index}><Link href={`/featured-category/${category}`}>{category}</Link>
                                             </li>))
                                     }
                                 </ul>
@@ -56,7 +56,7 @@ const Navbar = () => {
                                 <ul className="p-2 w-44">
                                     {
                                         featuredCategories.map((category, index) => (
-                                            <li key={index}><Link href={`/categories/${category}`}>{category}</Link>
+                                            <li key={index}><Link href={`/featured-category/${category}`}>{category}</Link>
                                             </li>))
                                     }
                                 </ul>
