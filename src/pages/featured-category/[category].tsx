@@ -12,7 +12,7 @@ type IProps = {
 const Category = ({productsByCategory}: IProps) => {
     const {query} = useRouter()
     return (
-        <div className={'container mx-auto h-full mt-5 mb-10 flex flex-col items-center'}>
+        <div className={'container mx-auto h-screen mt-5 mb-10 flex flex-col items-center'}>
             <h1 className={'text-2xl lg:text-5xl mb-12'}>Category: {query.category}</h1>
             <div className={'grid lg:grid-cols-3 gap-4 grid-cols-1'}>
                 {
