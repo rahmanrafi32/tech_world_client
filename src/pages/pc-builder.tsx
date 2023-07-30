@@ -6,7 +6,6 @@ import {useAppSelector} from "@/redux/reduxTypedHooks";
 import Image from "next/image";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {GetServerSideProps} from "next";
 
 const PcBuilder = () => {
     const {cpu, monitor, motherboard, ram, powerSupply, storage} = useAppSelector(state => state.pcBuilder)
