@@ -149,7 +149,6 @@ const PcBuilder = () => {
                 newestOnTop={false}
                 closeOnClick
                 rtl={false}
-                pauseOnFocusLoss
                 draggable
                 pauseOnHover
                 theme="light"
@@ -159,11 +158,6 @@ const PcBuilder = () => {
 };
 
 export default PcBuilder;
-export const getServerSideProps: GetServerSideProps = async () => {
-    const res = await fetch('https://tech-world-server.vercel.app/api/v1/products')
-    const data = await res.json()
-    return {props: {allProducts: data.data}}
-}
 
 PcBuilder.getLayout = function getLayout(page: ReactElement) {
     return (<RootLayout>{page}</RootLayout>)
