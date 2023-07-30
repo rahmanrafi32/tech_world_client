@@ -2,14 +2,33 @@ import {ReactElement} from "react";
 import RootLayout from "@/components/layouts/RootLayout";
 import {featuredCategories} from "@/types";
 import Link from "next/link";
-import {useAppSelector} from "@/redux/reduxTypedHooks";
+import {useAppDispatch, useAppSelector} from "@/redux/reduxTypedHooks";
 import Image from "next/image";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {addCpu, addMonitor, addMotherboard, addPowerSupply, addRam, addStorage} from "@/redux/features/pcBuilderSlice";
+import {useRouter} from "next/router";
 
 const PcBuilder = () => {
     const {cpu, monitor, motherboard, ram, powerSupply, storage} = useAppSelector(state => state.pcBuilder)
-    const notify = () => toast("Your Build is ready");
+    const dispatch = useAppDispatch();
+    const state = {
+        productName: null,
+        image: '',
+        price: null
+    }
+    const {push} = useRouter()
+    const handleCompleteBuild = async () => {
+        toast("Your Build is ready")
+        setTimeout(() => push('/').then(() => {
+            dispatch(addCpu(state))
+            dispatch(addMonitor(state))
+            dispatch(addMotherboard(state))
+            dispatch(addRam(state))
+            dispatch(addPowerSupply(state))
+            dispatch(addStorage(state))
+        }), 3000)
+    }
     return (
         <div className={'container mx-auto h-full flex flex-col items-center mt-16 mb-28'}>
             <h1 className={'lg:text-3xl'}>Build Your Dream Pc With Us</h1>
@@ -138,7 +157,7 @@ const PcBuilder = () => {
             </div>
             {
                 (cpu.productName && monitor.productName && motherboard.productName && ram.productName && powerSupply.productName && storage.productName) ?
-                    <button className={'btn btn-primary w-56 mt-12 disabled'} onClick={notify}>Complete
+                    <button className={'btn btn-primary w-56 mt-12 disabled'} onClick={handleCompleteBuild}>Complete
                         Build</button> : null
             }
             <ToastContainer
